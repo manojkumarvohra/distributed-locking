@@ -16,7 +16,7 @@ To establish a distributed lock we choose an atomic variable which is maintained
 
 
 # Approach-1
-We maintain binary values as 0 and 1 to denote **lock_not_aquired** and **lock_aquired respectively**.
+We maintain binary values as 0 and 1 to denote **lock_not_aquired** and **lock_aquired** respectively.
 
 Atomic updates (compareAndSet(0,1)) ensure that only one of the process is able to lock the variable at one time while rest go in sleep and retry after some time.
 
@@ -27,7 +27,7 @@ Atomic updates (compareAndSet(0,1)) ensure that only one of the process is able 
 
 So we designed locks ourselves.
 
-We maintain binary states (any value > 1) and 1 to denote **lock_not_aquired** and **lock_aquired respectively**.
+We maintain binary states (any value > 1) and 1 to denote **lock_not_aquired** and **lock_aquired** respectively.
 
 We used incrementAndGet atomic operation in this approach.
 - If the returned value comes to be 1, we consider this as *lock_aquired*
